@@ -8,7 +8,7 @@ class BattleResult
 
     private Ship $losingShip;
 
-    public function __construct(bool $usedJediPower, Ship $winningShip, Ship $losingShip)
+    public function __construct(bool $usedJediPower, Ship $winningShip = null, Ship $losingShip = null)
     {
         $this->usedJediPower = $usedJediPower;
         $this->winningShip = $winningShip;
@@ -28,5 +28,10 @@ class BattleResult
     public function wereJediPowersUsed(): bool
     {
         return $this->usedJediPower;
+    }
+
+    public function isThereAWinner()
+    {
+        return $this->getWinningShip() !== null;
     }
 }
