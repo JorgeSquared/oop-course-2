@@ -10,9 +10,9 @@ class BattleManager
      * @param $ship1Quantity
      * @param Ship $ship2
      * @param $ship2Quantity
-     * @return array With keys winning_ship, losing_ship & used_jedi_powers
+     * @return BattleResult With keys winning_ship, losing_ship & used_jedi_powers
      */
-     function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity)
+     function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity): BattleResult
      {
          $ship1Health = $ship1->getStrength() * $ship1Quantity;
          $ship2Health = $ship2->getStrength() * $ship2Quantity;
@@ -54,11 +54,7 @@ class BattleManager
              $usedJediPowers = $ship1UsedJediPowers;
          }
 
-         return array(
-             'winning_ship' => $winningShip,
-             'losing_ship' => $losingShip,
-             'used_jedi_powers' => $usedJediPowers,
-         );
+         return new BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
 
     private function didJediDestroyShipUsingTheForce(Ship $ship)

@@ -1,0 +1,32 @@
+<?php
+
+class BattleResult
+{
+    private bool $usedJediPower;
+
+    private Ship $winningShip;
+
+    private Ship $losingShip;
+
+    public function __construct(bool $usedJediPower, Ship $winningShip, Ship $losingShip)
+    {
+        $this->usedJediPower = $usedJediPower;
+        $this->winningShip = $winningShip;
+        $this->losingShip = $losingShip;
+    }
+
+    public function getWinningShip(): Ship
+    {
+        return $this->winningShip;
+    }
+
+    public function getLosingShip(): Ship
+    {
+        return $this->losingShip;
+    }
+
+    public function wereJediPowersUsed(): bool
+    {
+        return $this->usedJediPower;
+    }
+}
