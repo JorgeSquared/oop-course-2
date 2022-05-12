@@ -2,15 +2,17 @@
 
 class Ship
 {
-    private $name;
+    private int $id;
 
-    private $weaponPower = 0;
+    private string $name;
 
-    private $jediFactor = 0;
+    private int $weaponPower = 0;
 
-    private $strength = 0;
+    private int $jediFactor = 0;
 
-    private $underRepair;
+    private int $strength = 0;
+
+    private bool $underRepair;
 
     public function __construct($name)
     {
@@ -113,4 +115,38 @@ class Ship
     {
         $this->jediFactor = $jediFactor;
     }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUnderRepair(): bool
+    {
+        return $this->underRepair;
+    }
+
+    /**
+     * @param bool $underRepair
+     */
+    public function setUnderRepair(bool $underRepair): void
+    {
+        $this->underRepair = $underRepair;
+    }
+
+
 }
